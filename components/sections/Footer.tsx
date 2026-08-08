@@ -44,7 +44,7 @@ export default function Footer() {
             <Link href="/" className="inline-block">
 
               <Image
-                src="/logos/logo.jpg"
+                src="/logos/logo.png"
                 alt="SYRO Innovative Fitness"
                 width={180}
                 height={60}
