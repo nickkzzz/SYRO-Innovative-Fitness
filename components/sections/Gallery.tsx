@@ -7,9 +7,9 @@ import Lightbox from "@/components/ui/Lightbox";
 
 const galleryImages = [
   { src: "/images/gym-1.jpg", title: "Strength Zone", category: "TRAINING" },
-  { src: "/images/gym-2.jpg", title: "Premium Equipment", category: "FACILITY" },
-  { src: "/images/gym-3.jpg", title: "Train Hard", category: "WORKOUT" },
-  { src: "/images/gym-4.jpg", title: "SYRO Fitness", category: "FACILITY" },
+  { src: "/images/gym-2.jpg", title: "Clean & Furnished", category: "WASHROOM" },
+  { src: "/images/gym-3.jpg", title: "Cardio", category: "TREADMILL" },
+  { src: "/images/gym-4.jpg", title: "Modern & Spacious", category: "FACILITY" },
   { src: "/images/cardio-1.jpg", title: "Cardio Zone", category: "CARDIO" },
   { src: "/images/cardio-2.jpg", title: "Push Your Limits", category: "CARDIO" },
   { src: "/images/dumble.jpg", title: "Build Strength", category: "STRENGTH" },
@@ -87,7 +87,7 @@ export default function Gallery() {
             <div className="flex flex-col items-center text-center">
               <div className="h-24 md:h-32 lg:h-7" />
               <p className="text-gray-500">Ready to experience SYRO Innovative Fitness?</p>
-              <a href="#membership" className="group/gallery mt-4 inline-flex min-h-[52px] items-center justify-center gap-3 rounded-lg border border-(--primary) bg-(--primary) px-8 py-3.5 text-sm font-bold uppercase tracking-wide !text-black shadow-[0_8px_25px_rgba(163,230,53,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d4ff7a] hover:bg-[#d4ff7a] hover:!text-black hover:shadow-[0_12px_30px_rgba(163,230,53,0.2)]">
+              <a href="#contact" className="group/gallery mt-4 inline-flex min-h-[52px] items-center justify-center gap-3 rounded-lg border border-(--primary) bg-(--primary) px-8 py-3.5 text-sm font-bold uppercase tracking-wide !text-black shadow-[0_8px_25px_rgba(163,230,53,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d4ff7a] hover:bg-[#d4ff7a] hover:!text-black hover:shadow-[0_12px_30px_rgba(163,230,53,0.2)]">
                 <span className="!text-black">Join SYRO Today</span>
                 <span className="text-lg leading-none !text-black transition-transform duration-300 group-hover/gallery:translate-x-1">→</span>
               </a>

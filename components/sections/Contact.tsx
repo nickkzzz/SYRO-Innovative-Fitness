@@ -1,112 +1,187 @@
-import Button from "@/components/ui/Button";
-import Reveal from "@/components/ui/Reveal";
+'use client';
+
+import React, { useState } from 'react';
+import InquiryModal from '@/components/ui/InquiryModal';
 
 export default function Contact() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedBranch, setSelectedBranch] = useState('kandivali');
+
+  const branches = [
+    {
+      id: 'kandivali',
+      name: '📍SYRO Kandivali',
+      address:
+       <div className="text-center">
+        123 Fitness Avenue, SV Road, Kandivali West, Mumbai, Maharashtra 400067
+      </div>,
+      phone: '+91 98765 43210',
+      mapEmbed:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.614284665001!2d72.86901737525365!3d19.212042182020785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b737718a510d%3A0x7c78cec2d0e660a!2sSYRO%20INNOVATIVE%20FITNESS%20-%20KANDIVALI!5e0!3m2!1sen!2sin!4v1788507049937!5m2!1sen!2sin',
+    },
+    {
+      id: 'malad',
+      name: '📍SYRO Malad',
+      address:
+        <div className="text-center">
+        123 Fitness Avenue, SV Road, Kandivali West, Mumbai, Maharashtra 400067
+      </div>,
+      phone: '+91 98765 43211',
+      mapEmbed:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.335673950835!2d72.83347187525295!3d19.180535682045697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b726f97806a5%3A0xac949c20be338cb4!2sSYRO%20INNOVATIVE%20FITNESS%20-%20MALAD!5e0!3m2!1sen!2sin!4v1788508567402!5m2!1sen!2sin',
+    },
+  ];
+
+  const handleInquireClick = (branchId: string) => {
+    setSelectedBranch(branchId);
+    setIsModalOpen(true);
+  };
+
   return (
-    <section id="contact" className="relative overflow-hidden bg-[#090909] section-spacing">
-      <div className="pointer-events-none absolute left-0 top-20 h-[500px] w-[500px] rounded-full bg-lime-400/10 blur-[160px]" />
-      <div className="pointer-events-none absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-lime-400/5 blur-[150px]" />
+    <>
+      <section
+        id="contact"
+        className="section-spacing relative z-10 bg-black text-white"
+      >
+        <div className="container mx-auto px-4">
 
-      <div className="container relative z-10">
+          {/* ================= HEADER ================= */}
+          <div className="text-center">
 
-        {/* ================= SECTION HEADER (CENTERED) ================= */}
-        <div className="mb-16 flex w-full justify-center md:mb-20">
-          <Reveal>
-            <div className="flex max-w-4xl flex-col items-center text-center">
-              <span className="text-sm font-semibold uppercase tracking-[0.4em] text-(--primary)">
-                Get In Touch
-              </span>
-              <h2 className="mt-4 text-5xl font-black uppercase leading-[0.95] tracking-tight text-white md:text-6xl lg:text-7xl">
-                READY TO <span className="text-(--primary)">GET STRONGER?</span>
+            <span className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-[rgb(var(--theme-accent))]">
+              Find Your Location
+            </span>
+
+            <h2 className="mt-4 text-5xl font-black uppercase leading-[0.95] tracking-tight text-white md:text-6xl lg:text-7xl">
+                CHOOSE YOUR <span className="text-(--primary)"> ARENA</span>
               </h2>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-gray-400 md:text-lg">
-                Have questions about our memberships, training programs, or
-                facilities? Get in touch with the SYRO team and start your fitness
-                journey today.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* ================= CONTACT GRID ================= */}
-        <div className="grid gap-8 lg:grid-cols-2">
-
-          {/* LEFT — CONTACT INFORMATION */}
-          <Reveal direction="left">
-            <div className="flex h-full flex-col items-start rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-left md:p-10 transition-all duration-500 hover:-translate-y-2 hover:border-lime-400/30 hover:shadow-[0_20px_50px_rgba(163,230,53,0.12)]">
-              <span className="text-xs font-bold uppercase tracking-[0.35em] text-(--primary)">
-                Contact SYRO
-              </span>
-              <h3 className="mt-5 text-3xl font-black uppercase text-white md:text-4xl">
-                LET'S CONNECT
-              </h3>
-              <p className="mt-5 leading-8 text-gray-400">
-                Whether you're looking for a new gym, personal training, or
-                simply want to know more about SYRO Innovative Fitness, we're
-                here to help.
-              </p>
-
-              <div className="mt-10 flex w-full flex-col space-y-5">
-                <a href="https://maps.app.goo.gl/p7x3HtPiX592zeCs5" target="_blank" rel="noopener noreferrer" className="group flex w-full flex-col items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:-translate-x-1 hover:border-(--primary)/40 hover:bg-white/[0.06] sm:flex-row sm:items-center">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-(--primary) text-xl text-black">📍</div>
-                  <div className="flex flex-col items-start">
-                    <p className="text-sm font-semibold text-gray-500">VISIT US</p>
-                    <p className="mt-1 font-medium text-white group-hover:text-(--primary)">SYRO Innovative Fitness</p>
-                    <p className="mt-1 text-sm text-gray-400">Open Google Maps →</p>
-                  </div>
-                </a>
-
-                <a href="https://www.instagram.com/syrofitness?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank" rel="noopener noreferrer" className="group flex w-full flex-col items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:-translate-x-1 hover:border-(--primary)/40 hover:bg-white/[0.06] sm:flex-row sm:items-center">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-(--primary) text-xl text-black">◎</div>
-                  <div className="flex flex-col items-start">
-                    <p className="text-sm font-semibold text-gray-500">FOLLOW US</p>
-                    <p className="mt-1 font-medium text-white group-hover:text-(--primary)">Instagram</p>
-                    <p className="mt-1 text-sm text-gray-400">Follow SYRO on Instagram →</p>
-                  </div>
-                </a>
-              </div>
-
-              <div className="mt-8">
-                <Button href="https://maps.app.goo.gl/p7x3HtPiX592zeCs5">Get Directions</Button>
-              </div>
-
-              {/* GOOGLE MAPS EMBED */}
-              <div className="mt-10 w-full overflow-hidden rounded-2xl border border-white/10">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.614284253015!2d72.8715923!3d19.2120422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b737718a510d%3A0x7c78cec2d0e660a!2sSYRO%20INNOVATIVE%20FITNESS%20-%20KANDIVALI!5e0!3m2!1sen!2sin!4v1786001694929!5m2!1sen!2sin" width="100%" height="320" style={{ border: 0 }} loading="lazy" allowFullScreen referrerPolicy="no-referrer-when-downgrade" className="w-full" />
-              </div>
-            </div>
-          </Reveal>
-
-          {/* RIGHT — CTA CARD */}
-          <Reveal direction="right" delay={150}>
-            <div className="relative flex h-full flex-col items-start justify-center overflow-hidden rounded-3xl border border-(--primary)/20 bg-(--primary)/5 p-8 text-left md:p-10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(163,230,53,0.15)]">
+            <p className="mt-6 text-gray-400">
               
-              <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-lime-400/20 blur-[100px]" />
+              Find your nearest SYRO Innovative Fitness branch.
+              <br className="hidden md:block" />
+              Select a location and start your transformation.
+            </p>
+          </div>
 
-              <div className="relative z-10 flex flex-col items-start">
-                <span className="text-xs font-bold uppercase tracking-[0.35em] text-(--primary)">
-                  Start Today
-                </span>
-                <h3 className="mt-5 text-4xl font-black uppercase leading-tight text-white md:text-5xl">
-                  YOUR <br /> STRONGER <br /> SELF <br /> STARTS HERE.
-                </h3>
-                <p className="mt-6 max-w-md leading-8 text-gray-300">
-                  Stop waiting for the perfect time. Take the first step toward
-                  a stronger, healthier, and more confident version of yourself.
-                </p>
+          {/* ================= BRANCH CARDS ================= */}
+          <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-stretch justify-items-center gap-10 md:grid-cols-2 lg:gap-12 mt-12">
 
-                <div className="mt-10 flex flex-wrap gap-5">
-                  <Button href="#membership">Join SYRO</Button>
-                  <a href="https://www.instagram.com/syrofitness?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[52px] items-center justify-center rounded-lg border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-(--primary) hover:bg-(--primary) hover:text-black">
-                    Instagram
-                  </a>
+            {branches.map((branch) => {
+              // Create a flag to check if the current branch is Kandivali
+              const isGreen = branch.id === 'kandivali';
+
+              return (
+                <div
+                  key={branch.id}
+                  className={`
+                    relative flex w-full max-w-[560px] flex-col overflow-hidden
+                    rounded-[2rem] border border-white/10
+                    bg-gradient-to-br from-[#171717] via-[#101010] to-[#0a0a0a]
+                    p-7 shadow-[0_20px_60px_rgba(0,0,0,0.45)]
+                    transition-all duration-500 hover:-translate-y-2
+                    hover:shadow-[0_25px_70px_rgba(0,0,0,0.65)] md:p-9
+                    ${isGreen ? 'hover:border-[#22c55e]' : 'hover:border-[rgb(var(--theme-accent))]'}
+                  `}
+                >
+                  {/* BRANCH NAME */}
+                  <h3
+                    className={`
+                      relative z-10 text-4xl font-black uppercase tracking-tight transition-colors duration-300 md:text-5xl
+                      ${isGreen ? 'text-[#22c55e]' : 'text-[rgb(var(--theme-accent))]'}
+                    `}
+                  >
+                    {branch.name}
+                  </h3>
+
+                  {/* ADDRESS */}
+                  <div className="relative z-10 mt-4 min-h-[4.5rem] max-w-lg text-sm leading-7 text-white/55 md:text-base">
+                    {branch.address}
+                  </div>
+
+                  {/* DIVIDER */}
+                  <div className="my-6 h-px w-full bg-white/10" />
+
+                  {/* MAP */}
+                  <div
+                    className="
+                      group/map relative mb-8 h-64 w-full
+                      overflow-hidden rounded-2xl
+                      border border-white/10
+                      bg-[#0a0a0a]
+                      shadow-inner
+                    "
+                  >
+                    <iframe
+                      src={branch.mapEmbed}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="
+                        grayscale contrast-125 opacity-65
+                        transition-all duration-700
+                        group-hover/map:grayscale-0
+                        group-hover/map:opacity-100
+                      "
+                    />
+                  </div>
+
+                  {/* ================= BUTTONS ================= */}
+                  <div className="mt-auto grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                    {/* CALL BUTTON */}
+                    <a
+                      href={`tel:${branch.phone.replace(/\s/g, '')}`}
+                      className={`
+                        group inline-flex min-h-[54px] items-center justify-center gap-4
+                        whitespace-nowrap rounded-full border px-8 py-4
+                        text-sm font-bold leading-none tracking-wide transition-all duration-300
+                        hover:-translate-y-1 hover:text-black sm:text-base
+                        ${isGreen 
+                          ? 'border-[#22c55e]/40 bg-[#22c55e]/10 text-[#22c55e] hover:border-[#22c55e] hover:bg-[#22c55e]' 
+                          : 'border-[rgba(var(--theme-accent),0.4)] bg-[rgba(var(--theme-accent),0.1)] text-[rgb(var(--theme-accent))] hover:border-[rgb(var(--theme-accent))] hover:bg-[rgb(var(--theme-accent))]'
+                        }
+                      `}
+                    >
+                      <span>Call {branch.phone.slice(4)}</span>
+                      <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+
+                    {/* INQUIRE BUTTON */}
+                    <button
+                      onClick={() => handleInquireClick(branch.id)}
+                      className={`
+                        group flex min-h-[58px] items-center justify-center rounded-full border-2 bg-transparent
+                        px-6 py-4 text-center text-sm font-black uppercase tracking-[0.14em]
+                        transition-all duration-300 hover:-translate-y-1 hover:text-black
+                        hover:shadow-[0_10px_35px_rgba(0,0,0,0.45)]
+                        ${isGreen 
+                          ? 'border-[#22c55e] text-[#22c55e] hover:bg-[#22c55e]' 
+                          : 'border-[rgb(var(--theme-accent))] text-[rgb(var(--theme-accent))] hover:bg-[rgb(var(--theme-accent))]'
+                        }
+                      `}
+                    >
+                      <span className="transition-transform duration-300 group-hover:scale-105">
+                        Inquire Now
+                      </span>
+                    </button>
+
+                  </div>
                 </div>
-              </div>
-            </div>
-          </Reveal>
-
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ================= INQUIRY MODAL ================= */}
+      <InquiryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        defaultBranch={selectedBranch}
+      />
+    </>
   );
 }

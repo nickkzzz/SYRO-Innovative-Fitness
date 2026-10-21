@@ -35,7 +35,7 @@ export default function Programs() {
       <div className="pointer-events-none absolute -left-40 bottom-20 h-[450px] w-[450px] rounded-full bg-lime-400/5 blur-[150px]" />
 
       <div className="container relative z-10">
-        
+
         {/* ================= SECTION HEADER (CENTERED) ================= */}
         <div className="mb-16 flex w-full justify-center md:mb-20">
           <Reveal>
@@ -89,7 +89,7 @@ export default function Programs() {
                   {program.description}
                 </p>
                 <div className="mt-6">
-                  <a href="#membership" className="group/program inline-flex min-h-[50px] items-center justify-center gap-3 rounded-lg border border-(--primary) bg-(--primary) px-6 py-3 text-sm font-bold uppercase tracking-wide !text-black shadow-[0_8px_25px_rgba(163,230,53,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d4ff7a] hover:bg-[#d4ff7a] hover:!text-black hover:shadow-[0_12px_30px_rgba(163,230,53,0.2)]">
+                  <a href="#contact" className="group/program inline-flex min-h-[50px] items-center justify-center gap-3 rounded-lg border border-(--primary) bg-(--primary) px-6 py-3 text-sm font-bold uppercase tracking-wide !text-black shadow-[0_8px_25px_rgba(163,230,53,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d4ff7a] hover:bg-[#d4ff7a] hover:!text-black hover:shadow-[0_12px_30px_rgba(163,230,53,0.2)]">
                     <span className="!text-black">Explore Program</span>
                     <span className="text-lg leading-none !text-black transition-transform duration-300 group-hover/program:translate-x-1">→</span>
                   </a>
@@ -101,7 +101,7 @@ export default function Programs() {
 <div className="h-24 md:h-32 lg:h-7" />
         {/* BOTTOM CTA */}
         <div className="mt-20 flex justify-center">
-          <a href="#membership" className="group inline-flex min-h-[54px] items-center justify-center gap-4 whitespace-nowrap rounded-full border border-(--primary)/40 bg-(--primary)/10 px-8 py-4 text-sm font-bold leading-none tracking-wide text-(--primary) transition-all duration-300 hover:-translate-y-1 hover:border-(--primary) hover:bg-(--primary) hover:text-black sm:text-base">
+          <a href="#contact" className="group inline-flex min-h-[54px] items-center justify-center gap-4 whitespace-nowrap rounded-full border border-(--primary)/40 bg-(--primary)/10 px-8 py-4 text-sm font-bold leading-none tracking-wide text-(--primary) transition-all duration-300 hover:-translate-y-1 hover:border-(--primary) hover:bg-(--primary) hover:text-black sm:text-base">
             <span>Start Your Fitness Journey</span>
             <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>

@@ -54,12 +54,7 @@ export default function About() {
                 Why Choose <br /> <span className="text-(--primary)">SYRO Fitness</span>
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-8 text-gray-400">
-                At SYRO Innovative Fitness, we combine cutting-edge equipment,
-                certified coaches, and customized training programs to help
-                every member become stronger, healthier, and more confident.
-                Whether you are just starting your fitness journey or already
-                an athlete, we create the perfect environment to help you
-                achieve your goals.
+                At SYRO Innovative Fitness, we go beyond the workout to deliver a complete health and wellness experience. By integrating customized fitness programming, dedicated nutritional guidance, and specialized recovery protocols, we ensure your body gets exactly what it needs to perform, heal, and grow. Join an environment where every aspect of your well-being is supported to help you build a stronger.
               </p>
 
               <div className="mt-12 grid w-full grid-cols-3 gap-6 border-y border-white/10 py-8 text-left">

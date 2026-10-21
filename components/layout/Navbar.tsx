@@ -5,38 +5,43 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "#hero" },
   { name: "Experience", href: "#about" },
   { name: "Training", href: "#programs" },
-  { name: "Membership", href: "#membership" },
+  { name: "Offers", href: "#offers" },
   { name: "Gallery", href: "#gallery" },
+  { name: "Team", href: "#team" },
   { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("#");
+  
+  // FIX 1: Default to "#hero" so "Home" is highlighted on initial page load
+  const [active, setActive] = useState("#hero");
 
   // =========================================================
   // SCROLL LISTENER FOR ACTIVE SECTION HIGHLIGHT
   // =========================================================
   useEffect(() => {
-    const sections = navLinks.map((item) =>
-      document.querySelector(item.href === "#" ? "body" : item.href) // Prevent querySelector("#") error
-    );
+    // Safely grab only the sections that actually exist on the page right now
+    const sections = navLinks
+      .map((item) => document.querySelector(item.href))
+      .filter(Boolean);
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Fallback to "#" if it's the body/home section
-            setActive(entry.target.id ? `#${entry.target.id}` : "#");
+            setActive(`#${entry.target.id}`);
           }
         });
       },
       {
-        threshold: 0.35,
+        // FIX 2: Replaced 'threshold' with 'rootMargin'. 
+        // This triggers the highlight perfectly when a section enters the top 20% to 60% of the screen.
+        rootMargin: "-20% 0px -60% 0px",
       }
     );
 
@@ -121,10 +126,9 @@ export default function Navbar() {
           </Link>
 
           {/* =======================================================
-              DESKTOP NAVIGATION (Absolutely Centered)
+              DESKTOP NAVIGATION 
           ======================================================= */}
-
-          <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:flex xl:gap-10">
+          <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-5 lg:flex xl:gap-8">
 
             {navLinks.map((item) => (
 
@@ -137,16 +141,17 @@ export default function Navbar() {
                     font-medium
                     transition-all
                     duration-300
+                    text-sm xl:text-base
                     ${
                       active === item.href
-                        ? "text-(--primary)"
-                        : "text-white/80 hover:text-(--primary)"
+                        ? "text-[rgb(var(--theme-accent))]"
+                        : "text-white/80 hover:text-[rgb(var(--theme-accent))]"
                     }
                     after:absolute
                     after:-bottom-2
                     after:left-0
                     after:h-[2px]
-                    after:bg-(--primary)
+                    after:bg-[rgb(var(--theme-accent))]
                     after:transition-all
                     after:duration-300
                     ${
@@ -190,7 +195,7 @@ export default function Navbar() {
               bg-white/5
               transition-all
               duration-300
-              hover:border-(--primary)/50
+              hover:border-[rgb(var(--theme-accent))]/50
               hover:bg-white/10
               lg:hidden
             "
@@ -250,8 +255,6 @@ export default function Navbar() {
 
           <div className="p-5">
 
-            {/* Mobile Links */}
-
             <ul className="space-y-2">
 
               {navLinks.map((item) => (
@@ -271,8 +274,8 @@ export default function Navbar() {
                       duration-300
                       ${
                         active === item.href
-                          ? "bg-(--primary)/10 text-(--primary)"
-                          : "text-white/80 hover:bg-white/5 hover:text-(--primary)"
+                          ? "bg-[rgb(var(--theme-accent))]/10 text-[rgb(var(--theme-accent))]"
+                          : "text-white/80 hover:bg-white/5 hover:text-[rgb(var(--theme-accent))]"
                       }
                     `}
                   >

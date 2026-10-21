@@ -13,8 +13,14 @@
   --background: #090909;
   --surface: #141414;
 
-  --primary: #b6ff3b;
-  --primary-hover: #a0ea25;
+  /* 
+     DYNAMIC SCROLL-FADE EFFECT
+     182, 255, 59 is the RGB equivalent of your original #b6ff3b
+     The ColorScrollEffect component will override --theme-accent as the user scrolls.
+  */
+  --theme-accent: 182, 255, 59;
+  --primary: rgb(var(--theme-accent));
+  --primary-hover: rgb(var(--theme-accent) / 0.8);
 
   --foreground: #ffffff;
   --muted: #9ca3af;
@@ -150,14 +156,6 @@ button {
 .reveal-right { animation: reveal-right 0.8s ease-out both; }
 
 /* =========================================================
-   CUSTOM CURSOR HIDE (DESKTOP)
-========================================================= */
-@media (min-width: 1024px) {
-  body { cursor: none; }
-  a, button { cursor: none; }
-}
-
-/* =========================================================
    REDUCED MOTION
 ========================================================= */
 @media (prefers-reduced-motion: reduce) {
@@ -168,4 +166,7 @@ button {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
 }

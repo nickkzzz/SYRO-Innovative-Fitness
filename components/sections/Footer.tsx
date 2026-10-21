@@ -178,7 +178,7 @@ export default function Footer() {
             <div className="mt-7">
 
         <a
-  href="#membership"
+  href="#contact"
   className="
     group/footer
     inline-flex

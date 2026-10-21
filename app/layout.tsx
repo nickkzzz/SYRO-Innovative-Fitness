@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "@/components/ui/ClientLayout";
-import Cursor from "@/components/ui/Cursor";
 import Spotlight from "@/components/ui/Spotlight";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import BackToTop from "@/components/ui/BackToTop";
+import ColorScrollEffect from "@/components/ui/ColorScrollEffect"; // <-- Added this import
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -31,9 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${bebas.variable}`}>
+        <ColorScrollEffect /> {/* <-- Added the scroll tracker here */}
         <ClientLayout>
            <Spotlight />
-           <Cursor />
           {children}
           <BackToTop />
           <WhatsAppButton />
